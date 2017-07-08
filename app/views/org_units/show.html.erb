@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @org_unit.name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @org_unit.city %>
+</p>
+
+<p>
+  <strong>Post code:</strong>
+  <%= @org_unit.post_code %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @org_unit.street %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @org_unit.country %>
+</p>
+
+<%= link_to 'Edit', edit_org_unit_path(@org_unit) %> |
+<%= link_to 'Back', org_units_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  abstract: MyText
+  type: 
+  author_count: 1
+  pages: 1
+
+two:
+  title: MyString
+  abstract: MyText
+  type: 
+  author_count: 1
+  pages: 1

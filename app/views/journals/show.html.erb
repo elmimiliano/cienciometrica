@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @journal.title %>
+</p>
+
+<p>
+  <strong>Abbreviation:</strong>
+  <%= @journal.abbreviation %>
+</p>
+
+<p>
+  <strong>Issn:</strong>
+  <%= @journal.issn %>
+</p>
+
+<p>
+  <strong>Org unit:</strong>
+  <%= @journal.org_unit_id %>
+</p>
+
+<%= link_to 'Edit', edit_journal_path(@journal) %> |
+<%= link_to 'Back', journals_path %>

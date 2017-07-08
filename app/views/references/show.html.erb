@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Citing article:</strong>
+  <%= @reference.citing_article_id %>
+</p>
+
+<p>
+  <strong>Cited article:</strong>
+  <%= @reference.cited_article_id %>
+</p>
+
+<%= link_to 'Edit', edit_reference_path(@reference) %> |
+<%= link_to 'Back', references_path %>

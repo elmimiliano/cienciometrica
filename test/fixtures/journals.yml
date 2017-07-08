@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  abbreviation: MyString
+  issn: MyString
+  org_unit_id: 1
+
+two:
+  title: MyString
+  abbreviation: MyString
+  issn: MyString
+  org_unit_id: 1
