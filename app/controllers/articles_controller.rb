@@ -15,6 +15,10 @@ class ArticlesController < ApplicationController
   # GET /articles/new
   def new
     @article = Article.new
+    @article.authorships.build
+    @article.authorships.build
+   # @article.authorships.build #formulario anidado para crear un autor en el mismo momento que el articulo
+  
   end
 
   # GET /articles/1/edit
@@ -24,7 +28,17 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
+   # params #=> {a: 3, form: {name: 'ss', otra: 'op', autor_form: {} }  }
+    #params[:autorships] #=> [{autor_id: 1},{autor_name: 'sjjss'},{}] 
+    #params[:autorships].each do |autor|
+     # if id
+      #  autor = People[id]
+      #else
+      #  autor = People.new(nombre)
+
+    
     @article = Article.new(article_params)
+
 
     respond_to do |format|
       if @article.save
@@ -40,6 +54,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+   # binding.pry 
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
@@ -69,6 +84,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :abstract, :section, :author_count, :pages)
+      params.require(:article).permit(:title, :abstract, :section, :author_count, :pages, authorships_attributes: [:id, :person_id, :article_id, :position])
     end
 end

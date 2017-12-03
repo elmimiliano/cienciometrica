@@ -10,6 +10,39 @@
       </ul>
     </div>
   <% end %>
+  
+  <h4>Seleccione un autor o cree uno<h4>
+
+  <div class="field">
+  Autores:
+  <ul>
+    <%= f.fields_for :authorships do |authorships_form| %>
+      <li>
+       
+        <%#= authorships_form.label :person_id%>
+        <%#= authorships_form.text_field :person_id %>
+ 
+        <%#= authorships_form.label :position %>
+        <%#= authorships_form.text_field :position %>
+
+      <%#= authorships_form.label :person_id, "Person" %><br />
+      <%#= authorships_form.collection_select :person_id, Person.all, :id, :full_name %>
+     
+     
+     <%= render :partial => 'authorships/authorships_fields' , :locals => { :authorships => authorships_form} %>
+
+       <%#= render partial: "authorships_fields" , locals: {locals} %>
+     
+
+      </li>
+    <% end %>
+  </ul>
+
+
+
+  </div>
+
+  <%= link_to 'New Person', new_person_path %>
 
   <div class="field">
     <%= f.label :title %>
@@ -35,6 +68,8 @@
     <%= f.label :pages %>
     <%= f.number_field :pages %>
   </div>
+
+
 
   <div class="actions">
     <%= f.submit %>

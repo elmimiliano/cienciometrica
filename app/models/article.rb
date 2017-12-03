@@ -1,6 +1,16 @@
 class Article < ApplicationRecord
-	has_many :authorships
+	has_many :authorships, inverse_of: :article
 	has_many :people, through: :authorships 
+
+	accepts_nested_attributes_for :authorships
+	has_and_belongs_to_many :keywords
+
+	belongs_to :journals
+
+
+	
+	
+
 
 	def to_s
 		title
@@ -14,6 +24,6 @@ class Article < ApplicationRecord
     has_many :referencia, :class_name => "Reference", :foreign_key => "cited_article_id"
     has_many :cited_articles, :through => :referencia, :source => :cited_article
  
- 	has_and_belongs_to_many :keywords
+ 	
 
 end

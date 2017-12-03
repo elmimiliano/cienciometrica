@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Authorship:</strong>
+  <%= @affiliation.authorship %>
+</p>
+
+<p>
+  <strong>Org units:</strong>
+  <%= @affiliation.org_units %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @affiliation.email %>
+</p>
+
+<%= link_to 'Edit', edit_affiliation_path(@affiliation) %> |
+<%= link_to 'Back', affiliations_path %>

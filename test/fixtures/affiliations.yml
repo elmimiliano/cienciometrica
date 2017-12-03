@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  authorship: one
+  org_units: one
+  email: MyString
+
+two:
+  authorship: two
+  org_units: two
+  email: MyString

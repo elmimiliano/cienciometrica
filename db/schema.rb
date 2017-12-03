@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170702165226) do
+ActiveRecord::Schema.define(version: 20170715024535) do
+
+  create_table "affiliations", force: :cascade do |t|
+    t.integer  "authorship_id"
+    t.integer  "org_units_id"
+    t.string   "email"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["authorship_id"], name: "index_affiliations_on_authorship_id"
+    t.index ["org_units_id"], name: "index_affiliations_on_org_units_id"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -18,8 +28,12 @@ ActiveRecord::Schema.define(version: 20170702165226) do
     t.string   "section"
     t.integer  "author_count"
     t.integer  "pages"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "journal_id"
+    t.string   "volume"
+    t.string   "issue"
+    t.date     "publication_date"
   end
 
   create_table "articles_keywords", id: false, force: :cascade do |t|
@@ -74,6 +88,12 @@ ActiveRecord::Schema.define(version: 20170702165226) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "org_units_organizations", id: false, force: :cascade do |t|
+    t.integer "org_unit_id",     null: false
+    t.integer "organization_id", null: false
+    t.index ["organization_id", "org_unit_id"], name: "org_unitsOrganizations", unique: true
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
     t.string   "country"
@@ -89,17 +109,6 @@ ActiveRecord::Schema.define(version: 20170702165226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["last_name"], name: "index_people_on_last_name"
-  end
-
-  create_table "publications", force: :cascade do |t|
-    t.integer  "article_id"
-    t.integer  "journal_id"
-    t.integer  "issue"
-    t.integer  "volume"
-    t.date     "publication_date"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["article_id"], name: "index_publications_on_article_id"
   end
 
   create_table "references", force: :cascade do |t|
